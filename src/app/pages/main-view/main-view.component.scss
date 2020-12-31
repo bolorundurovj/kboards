@@ -1,0 +1,92 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-family: "Signika", "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.has-gradient-text {
+  background: -webkit-linear-gradient(#13f7f4, #2af598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  .board-bar {
+    background: rgba(gray, 0.5);
+    padding: 8px 15px;
+
+    .board-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: whitesmoke;
+    }
+  }
+
+  .board-wrapper {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+
+    .board-columns {
+      display: flex;
+      flex-grow: 1;
+
+      .board-column {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0; //Forces all columns to be same size
+
+        min-width: 300px;
+        max-width: 300px;
+        margin: 30px;
+        padding: 20px;
+
+        border-radius: 6px;
+
+        background: rgba(white, 0.5);
+
+        &:not(:first-child) {
+          margin-left: 0;
+        }
+
+        .column-title {
+          font-size: 1.2rem;
+          font-family: "Signika", "Open Sans", sans-serif;
+          font-weight: 800;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.tasks-container{
+  flex-grow: 1;
+}
+
+.task {
+  display: flex;
+  padding: 10px 8px;
+  background: whitesmoke;
+  border-bottom: solid 1px #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+
+  box-shadow: 0 5px 5px -3px rgba(0,0,0, 0.05),
+   0 3px 14px 2px rgba(0, 0, 0, 0.05);
+}
