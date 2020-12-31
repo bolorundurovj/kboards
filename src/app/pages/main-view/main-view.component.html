@@ -12,15 +12,21 @@
       <p class="board-name">{{board.name}}</p>
     </div>
 
-    <div class="board-wrapper">
+    <div class="board-wrapper" cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="board.columns"
+      (cdkDropListDropped)="drop($event)">
       <div class="board-columns" cdkDropListGroup>
-        <div class="board-column" *ngFor="let column of board.columns">
+        <div class="board-column" *ngFor="let column of board.columns" cdkDrag>
           <div class="column-title">
             {{column.name}}
+            <span style="margin-left: auto; margin-right: auto;">&nbsp;</span>
+            <svg class="column-title-icon" cdkDragHandle xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
           </div>
 
-          <div class="tasks-container" cdkDropList [cdkDropListData]="column.tasks"
-            (cdkDropListDropped)="drop($event)">
+          <div class="tasks-container" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)">
             <div class="task" *ngFor="let task of column.tasks; let i=index" cdkDrag>
               {{task}}
             </div>
