@@ -12,6 +12,7 @@
 
 .has-gradient-text {
   background: -webkit-linear-gradient(#13f7f4, #2af598);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
